@@ -4,7 +4,7 @@ class AddList extends Component {
   constructor(props){
     super(props);
     this.state = {
-      items: [],
+      lists: this.props.lists,
       text: '',
       id: 0
     }
@@ -16,17 +16,18 @@ class AddList extends Component {
 
       // Implement the rest of this function here!
       var newItem = {
-        text: this.refs.id.value,
+        name: this.refs.id.value,
         id: this.state.id
       };
       this.setState ({
-        items :this.state.items.concat(newItem),
-        text: '',
+        lists: this.state.lists.push(newItem),
+        name: '',
         id: this.state.id + 1
       });
       console.log('new item is ', newItem);
       this.refs.id.value = '';
   }
+  
 
   render() {
     return (
