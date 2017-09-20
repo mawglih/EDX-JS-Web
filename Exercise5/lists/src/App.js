@@ -31,15 +31,17 @@ class App extends Component {
           // var newItem = this.state.listName;
           // console.log('newitem', newItem);
           this.lists = this.state.lists.push(this.state.listName); 
-        }, () => {
-          this.handleAddItem(this.lists);
-          console.log('lists here ', this.state.lists);
-          console.log('items array in app', this.state.items);
         });
         //this.setState({lists : this.state.lists.concat(newItem)});
-          
         
     }
+    
+    componentDidUpdate () {
+      this.handleAddItem(this.lists);
+      console.log('lists here ', this.state.lists);
+      console.log('items array in app', this.state.items);
+    }
+      
     // {this.state.articles.map(function(article){
     //       return <Article article={article} key={article._id}
     /**
