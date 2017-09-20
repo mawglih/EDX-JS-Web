@@ -23,13 +23,21 @@ class App extends Component {
      */
     handleAddList(s) {
         // Implement this function!
+        this.lists = this.state.lists;
+        this.items = this.state.items;
+        console.log('lists before ', this.lists);
+        console.log('items array before in app', this.items);
         this.setState ({listName: s}, () =>{
           // var newItem = this.state.listName;
           // console.log('newitem', newItem);
           this.lists = this.state.lists.push(this.state.listName); 
+        }, () => {
+          this.handleAddItem(this.lists);
+          console.log('lists here ', this.state.lists);
+          console.log('items array in app', this.state.items);
         });
         //this.setState({lists : this.state.lists.concat(newItem)});
-          console.log('lists here ', this.state.lists);
+          
         
     }
     // {this.state.articles.map(function(article){
@@ -43,6 +51,12 @@ class App extends Component {
      * the state, this function  should then re-render this App component.
      */
     handleAddItem(s) {
+      var listItem = [];
+      var items = this.state.items;
+      for(var i = 0; i < s.length; i++) {
+        items[i]={itemName:s[i], key:listItem};
+      }
+      
         // Implement this function!
         // this.setState({itemName: s}, () => {
         //   this.items = this.state.items.push(this.state.itemName);
