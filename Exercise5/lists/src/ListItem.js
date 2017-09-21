@@ -3,8 +3,12 @@ import React, { Component } from 'react';
 class ListItem extends Component {
 
     constructor(props) {
-	super(props);
-	this.state = { color: 'black' };
+      super(props);
+      this.state = { color: 'black' };
+    }
+
+    componentDidUpdate() {
+      console.log('Listitem ', this.props.items, this.props.lists, this.props.addItem);
     }
 
     handleClick() {

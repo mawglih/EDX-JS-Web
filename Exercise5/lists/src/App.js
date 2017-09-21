@@ -9,7 +9,7 @@ class App extends Component {
         super();
         this.state = {
             lists: [], // this holds the name of each list
-            items: {}, // this property names of this object are the names of the lists; their values are arrays of the items in each list
+            items: {} // this property names of this object are the names of the lists; their values are arrays of the items in each list
         };
         this.handleAddItem = this.handleAddItem.bind(this);
         this.handleAddList = this.handleAddList.bind(this);
@@ -25,27 +25,26 @@ class App extends Component {
 
     handleAddList(s) {
         // Implement this function!
-        const lists = this.state.lists;
-        let newList = lists;
-        let newItems = this.state.items;
+        let newList = this.state.lists;
+        let newItem = this.state.items;
         newList.push(s);
-        newItems = {val:newList, key: []};
-        console.log('lists before ', lists);
-        console.log('items array before in app', this.state.items);
-        this.setState({newList});
+        var i = newList.length - 1;
+        newItem[i] = {
+            s,
+            listItem:  []
+        };
+        console.log('newitem ', newItem);
+        this.setState({
+          lists: newList,
+          items: newItem
+        });
     }
 
     componentDidUpdate () {
-      var lists = this.state.lists;
       console.log('lists after ', this.state.lists);
       console.log('items in app', this.state.items);
     }
 
-
-
-
-    // {this.state.articles.map(function(article){
-    //       return <Article article={article} key={article._id}
     /**
      * This function takes the state of an AddItem component as its parameter
      * and updates the state of this App component by adding a new value to the
@@ -55,9 +54,15 @@ class App extends Component {
      * the state, this function  should then re-render this App component.
      */
     handleAddItem(s) {
-
-
         // Implement this function!
+        let items = this.state.items;
+        let lists = this.state.lists;
+        console.log('handleadditem items ', items);
+        // var list = this.props.name;
+        // items.list[0].push(s);
+        // this.setState({
+        //   items
+        // });
 
     }
 

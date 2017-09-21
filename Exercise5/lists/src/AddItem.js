@@ -8,19 +8,28 @@ class AddItem extends Component {
       newItem:{}
     }
   }
-
+  componentDidUpdate() {
+    console.log('Additem ', this.props.items, this.props.lists, this.props.addList);
+  }
   handleSubmit(e) {
       e.preventDefault(); // this prevents the page from reloading -- do not delete this line!
-
       // Implement the rest of this function here!
       var newName = this.refs.id.value;
       console.log('name' , newName);
-      this.setState({itemName: newName},() => {
+      var item = this.state.newItem;
+      item = {
+        newName
+      }
+      this.setState({ newItem: item},() => {
         this.props.addItem(this.state.itemName);
       });
 
 
       this.refs.id.value = '';
+  }
+
+  componentDidUpdate() {
+    console.log('add item update ', this.state.newItem);
   }
 
 

@@ -4,6 +4,11 @@ import AddItem from './AddItem.js';
 const uuidv4 = require('uuid');
 
 class List extends Component {
+  
+
+  componentDidUpdate() {
+    console.log('List ', this.props.items, this.props.lists, this.props.addItem);
+  }
 
   render() {
     var name = this.props.name;
