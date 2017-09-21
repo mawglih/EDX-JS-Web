@@ -4,7 +4,6 @@ export default class AddList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            lists: this.props.lists,
             listname: '',
             id: ''
         };
@@ -18,27 +17,26 @@ export default class AddList extends Component {
         console.log('name' , newName);
         this.setState({listname: newName},() => {
           this.props.addList(this.state.listname);
-          console.log('props lists ', this.props.lists);
         });
-        
-        
+
+
         this.refs.id.value = '';
-        
+
     }
-  
+
 
     render() {
-        return ( 
+        return (
           <div id = "addListDiv">
                     <form onSubmit = {this.handleSubmit} >
                       <div id = 'addList' >
-                        <label > What will be on your next list ? &nbsp; 
+                        <label > What will be on your next list ? &nbsp;
                           <input type = 'text'  ref = 'id'  id = 'newID'/>
-                        </label > 
+                        </label >
                       </div>
                       <br/>
                       <input type = 'submit' value = 'Create List' />
-                    </form> 
+                    </form>
           </div>
         );
     }

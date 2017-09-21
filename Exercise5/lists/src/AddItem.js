@@ -13,15 +13,16 @@ class AddItem extends Component {
       e.preventDefault(); // this prevents the page from reloading -- do not delete this line!
 
       // Implement the rest of this function here!
-      // var newName = this.refs.id.value;
-      // this.setState({newItem: newName},() => {
-      //     this.props.addItem(this.state.newItem);
-      //   });
-        
-        
-      //   this.refs.id.value = '';
+      var newName = this.refs.id.value;
+      console.log('name' , newName);
+      this.setState({itemName: newName},() => {
+        this.props.addItem(this.state.itemName);
+      });
+
+
+      this.refs.id.value = '';
   }
-    
+
 
   render() {
     var divName = 'add' + this.props.idName;
