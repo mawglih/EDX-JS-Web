@@ -4,17 +4,19 @@ import AddItem from './AddItem.js';
 const uuidv4 = require('uuid');
 
 class List extends Component {
-  
 
-  componentDidUpdate() {
-    console.log('List ', this.props.items, this.props.lists, this.props.addItem);
-  }
+
+
 
   render() {
+
     var name = this.props.name;
     var items = this.props.items;
+    console.log('in List items', items);
+
 
     if (items) {
+      console.log('in List items', items);
       return (
         <div id={name} key={uuidv4()}>
           <h3>{name} List</h3>

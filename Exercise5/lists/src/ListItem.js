@@ -7,12 +7,18 @@ class ListItem extends Component {
       this.state = { color: 'black' };
     }
 
-    componentDidUpdate() {
-      console.log('Listitem ', this.props.items, this.props.lists, this.props.addItem);
-    }
-
     handleClick() {
 	// Implement this function!
+      let counter = 0;
+      let newColor = this.state.color;
+      if (newColor == 'black'){
+        newColor = 'gray';
+      } else {
+        newColor = 'black';
+      }
+      this.setState ({
+        color: newColor
+      })
     }
 
   render() {
@@ -29,4 +35,3 @@ class ListItem extends Component {
 
 }
 export default ListItem;
-

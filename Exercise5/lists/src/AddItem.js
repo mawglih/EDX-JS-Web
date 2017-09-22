@@ -5,7 +5,7 @@ class AddItem extends Component {
   constructor() {
     super();
     this.state = {
-      newItem:{}
+      newItem:{},
     }
   }
   componentDidUpdate() {
@@ -16,12 +16,12 @@ class AddItem extends Component {
       // Implement the rest of this function here!
       var newName = this.refs.id.value;
       console.log('name' , newName);
-      var item = this.state.newItem;
-      item = {
-        newName
-      }
-      this.setState({ newItem: item},() => {
-        this.props.addItem(this.state.itemName);
+      const listName = this.props.idName;
+      console.log('current list name is ', listName);
+      let name = this.state.newItem;
+      name = { listname: listName, name: newName }
+      this.setState({ newItem: name},() => {
+        this.props.addItem(this.state.newItem);
       });
 
 

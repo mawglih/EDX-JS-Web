@@ -31,7 +31,7 @@ class App extends Component {
         var i = newList.length - 1;
         newItem[i] = {
             s,
-            listItem:  []
+            item:  []
         };
         console.log('newitem ', newItem);
         this.setState({
@@ -57,14 +57,42 @@ class App extends Component {
         // Implement this function!
         let items = this.state.items;
         let lists = this.state.lists;
-        console.log('handleadditem items ', items);
-        // var list = this.props.name;
-        // items.list[0].push(s);
-        // this.setState({
-        //   items
-        // });
+        let list = Object.values(s)[0];
+        let item = Object.values(s)[1];
+        var value = {};
+        console.log('handleAddItem received object s ', s);
+        console.log('handleAddItem list ', Object.values(s)[0]);
+        console.log('handleAddItem item ', Object.values(s)[1]);
+        console.log('handleAddItem items ', Object.values(items));
+        Object.keys(items).some(function(k) {
+          if ( k == list) {
+            value = items[k];
 
+            return true;
+          }
+          console.log('found match ', value);
+          items[k].item.push(item);
+        });
+        this.setState({items}, () =>{
+          console.log('after item add state is ', this.state.items);
+        }
+      );
     }
+
+    // findVal(object, key) {
+    // var value;
+    // Object.keys(object).some(function(k) {
+    //     if (k === key) {
+    //         value = object[k];
+    //         return true;
+    //     }
+    //     if (object[k] && typeof object[k] === 'object') {
+    //         value = findVal(object[k], key);
+    //         return value !== undefined;
+    //     }
+    // });
+    // return value;
+    // }
 
     /**
      * Renders the component.
