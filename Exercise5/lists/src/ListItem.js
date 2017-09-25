@@ -6,10 +6,12 @@ class ListItem extends Component {
       super(props);
       this.state = { color: 'black' };
     }
+    componentDidMount(){
+      console.log('LISTitem props ', this.props);
+    }
 
     handleClick() {
 	// Implement this function!
-      let counter = 0;
       let newColor = this.state.color;
       if (newColor == 'black'){
         newColor = 'gray';

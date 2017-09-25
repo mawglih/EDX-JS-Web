@@ -10,6 +10,10 @@ export default class AddList extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    componentDidMount(){
+      console.log('AddList props ', this.props);
+    }
+
 
     handleSubmit(e) {
         e.preventDefault(); // this prevents the page from reloading -- do not delete this line!

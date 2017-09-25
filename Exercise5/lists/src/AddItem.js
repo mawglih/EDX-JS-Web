@@ -5,22 +5,32 @@ class AddItem extends Component {
   constructor() {
     super();
     this.state = {
-      newItem:{},
+      newItem:{}
     }
   }
-  componentDidUpdate() {
-    console.log('Additem ', this.props.items, this.props.lists, this.props.addList);
+  componentDidMount(){
+    console.log('Additem props ', this.props);
   }
+
+
   handleSubmit(e) {
       e.preventDefault(); // this prevents the page from reloading -- do not delete this line!
       // Implement the rest of this function here!
-      var newName = this.refs.id.value;
-      console.log('name' , newName);
-      const listName = this.props.idName;
-      console.log('current list name is ', listName);
-      let name = this.state.newItem;
-      name = { listname: listName, name: newName }
-      this.setState({ newItem: name},() => {
+      var item = this.refs.id.value;
+      var list = this.props.idName;
+      var items = this.props.items;
+      console.log('in additem items is ', items);
+      console.log('name' , item);
+      var newItem = this.state.newItem;
+      newItem = { 
+        list, 
+        item
+      };
+      // var currentItems = items.map(function (item) {
+      //   return item.search(list) !== -1;
+      // });
+      // console.log('Additem current item' , currentItems)
+      this.setState({ newItem},() => {
         this.props.addItem(this.state.newItem);
       });
 

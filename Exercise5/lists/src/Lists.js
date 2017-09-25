@@ -4,6 +4,9 @@ const uuidv4 = require('uuid');
 
 class Lists extends Component {
 
+  componentDidUpdate(){
+    console.log('Lists props ', this.props);
+  }
   render() {
     // If there are no lists, display a relevant message
     if(this.props.lists.length === 0) {
@@ -18,7 +21,7 @@ class Lists extends Component {
     var items = this.props.items;
     var lists = this.props.lists;
     var addItem = this.props.addItem;
-    console.log('Lists: ',  items);
+    console.log('Lists: ',  addItem);
     return (
       <div key={uuidv4()}>
       {lists.map(function(listName) {

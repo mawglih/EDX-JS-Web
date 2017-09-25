@@ -57,22 +57,29 @@ class App extends Component {
         // Implement this function!
         let items = this.state.items;
         let lists = this.state.lists;
-        let list = Object.values(s)[0];
-        let item = Object.values(s)[1];
+        let newlist = Object.values(s)[0];
+        let newitem = Object.values(s)[1];
         var value = {};
         console.log('handleAddItem received object s ', s);
         console.log('handleAddItem list ', Object.values(s)[0]);
         console.log('handleAddItem item ', Object.values(s)[1]);
         console.log('handleAddItem items ', Object.values(items));
-        Object.keys(items).some(function(k) {
-          if ( k == list) {
-            value = items[k];
-
-            return true;
+        // Object.keys(items).some(function(k) {
+        //   if ( k == list) {
+        //     value = items[k];
+        //     console.log('value is ', value);
+        //     return true;
+        //   }
+        //   console.log('found match ', value);
+        //   items[k].item.push(item);
+        // });
+        var keyNames = Object.keys(items);
+        for( var i in keyNames) {
+          console.log('object items iteration', keyNames[i]);
+          if (keyNames[i] == newlist){
+            items[i].item.push(newitem);
           }
-          console.log('found match ', value);
-          items[k].item.push(item);
-        });
+        }
         this.setState({items}, () =>{
           console.log('after item add state is ', this.state.items);
         }
